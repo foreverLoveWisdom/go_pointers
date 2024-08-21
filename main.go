@@ -20,14 +20,14 @@ func New(input string) *Lexer {
 // It updates the current character (ch) and positions (position and readPosition).
 // If the lexer has reached the end of the input, readChar sets ch to 0 ('NUL'),
 // indicating that there are no more characters to process.
-func (l Lexer) readChar() {
+func (l *Lexer) readChar() {
 	if l.readPosition >= len(l.input) {
 		l.ch = 0 // ASCII code for 'NUL', indicating end of input
 	} else {
 		l.ch = l.input[l.readPosition]
 	}
 	l.position = l.readPosition
-	l.readPosition += 1
+	l.readPosition++
 }
 
 func main() {
